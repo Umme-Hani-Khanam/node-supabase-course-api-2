@@ -1,4 +1,4 @@
-import { supabase } from "../../supabaseClient"; 
+import { supabase } from "../supabaseClient"; 
 //get
 export const getCourses = async (req, res) => {
   try {

@@ -1,14 +1,25 @@
-import loggermiddleware from "./src/middleware/loggermiddlware.js";
 import express from "express";
 import cors from "cors";
-import coursesRoute from './src/routes/coursesRoute.js'
-const app=express();
-const PORT=6900;
-app.use(express.json());
+import dotenv from "dotenv";
+
+import { logger } from "./middleware/loggermiddlware.js";
+import coursesRoute from "./routes/coursesRoute.js"
+dotenv.config();
+
+const app = express();
+
 app.use(cors());
-app.use('/api',coursesRoute);
+app.use(express.json());
 
 
-app.listen(PORT,()=>{
-    console.log('Server running at port',PORT)
-})
+// Logger middleware
+app.use(logger);
+
+// Routes
+app.use("/", coursesRoute);
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
