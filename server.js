@@ -1,4 +1,4 @@
-
+import loggermiddleware from "./src/middleware/loggermiddlware.js";
 import express from "express";
 import cors from "cors";
 import coursesRoute from './src/routes/coursesRoute.js'

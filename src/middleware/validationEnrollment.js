@@ -1,5 +1,5 @@
 import { supabase } from "../config/supabaseClient.js";
-
+import loggermiddleware from "./loggermiddlware.js";
 export const validationEnrollment = async (req, res, next) => {
   try {
     const { student_name, course_id } = req.body;
